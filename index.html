@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NX►SYS — Smart Outsourcing, For Smarter Future. World-class BPO solutions from Cebu, Philippines.">
+
+<title>NX►STEP | Home</title>
+    <link rel="icon" type="image/png" href="/nxsys.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:        #0E0F11;
+  --ink-light:  #1A1C21;
+  --ink-mid:    #2C2F38;
+  --surface:    #F5F2EE;
+  --white:      #FEFCFA;
+  --gold:       #C9A84C;
+  --gold-light: #E2C97A;
+  --gold-dim:   #8A6E2F;
+  --crimson:    #B83232;
+  --muted:      #6B6760;
+  --border:     rgba(201,168,76,0.18);
+  --border-sub: rgba(201,168,76,0.08);
+  --f-display: 'Cormorant Garamond', Georgia, serif;
+  --f-body:    'DM Sans', system-ui, sans-serif;
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--f-body); background: var(--ink); color: var(--surface); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+.container { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025; pointer-events: none; z-index: 9999;
+}
+
+/* NAVBAR */
+.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 40px; transition: all 0.4s var(--ease-out); }
+.navbar.scrolled { background: rgba(14,15,17,0.93); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.nav-logo img { height: 36px; width: auto; filter: brightness(0) invert(1); opacity: 0.88; transition: opacity 0.2s; }
+.nav-logo:hover img { opacity: 1; }
+.nav-links { display: flex; align-items: center; gap: 36px; }
+.nav-links a { font-size: 12.5px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(245,242,238,0.6); transition: color 0.2s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s var(--ease-out); }
+.nav-links a:hover, .nav-links a.active { color: var(--surface); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.btn-nav { padding: 9px 24px; border: 1px solid rgba(201,168,76,0.5); color: var(--gold) !important; font-size: 11.5px !important; letter-spacing: 0.1em !important; border-radius: 2px; transition: all 0.25s !important; }
+.btn-nav::after { display: none !important; }
+.btn-nav:hover { background: var(--gold) !important; color: var(--ink) !important; border-color: var(--gold) !important; }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.mobile-toggle span { display: block; width: 22px; height: 1.5px; background: var(--surface); transition: all 0.3s; }
+
+/* HERO */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 140px 80px 100px 80px; position: relative; z-index: 2; }
+.hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; opacity: 0; animation: fadeUp 0.8s var(--ease-out) 0.3s forwards; }
+.eyebrow-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: blink 2.5s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.75)} }
+.hero-eyebrow span { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+.hero-title { font-family: var(--f-display); font-size: clamp(50px,5.5vw,82px); font-weight: 600; line-height: 1.05; color: var(--white); letter-spacing: -0.02em; margin-bottom: 28px; opacity: 0; animation: fadeUp 0.9s var(--ease-out) 0.5s forwards; }
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-sub { font-size: 15px; line-height: 1.8; color: rgba(245,242,238,0.55); max-width: 420px; margin-bottom: 52px; opacity: 0; animation: fadeUp 0.9s var(--ease-out) 0.65s forwards; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.9s var(--ease-out) 0.8s forwards; }
+.btn-gold { display: inline-flex; align-items: center; gap: 10px; padding: 15px 36px; background: var(--gold); color: var(--ink); font-size: 12.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 2px; transition: all 0.25s var(--ease-out); position: relative; overflow: hidden; }
+.btn-gold::before { content: ''; position: absolute; inset: 0; background: var(--gold-light); transform: scaleX(0); transform-origin: left; transition: transform 0.3s var(--ease-out); }
+.btn-gold:hover::before { transform: scaleX(1); }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.3); }
+.btn-gold span, .btn-gold svg { position: relative; z-index: 1; }
+.btn-gold:hover svg { transform: translateX(4px); }
+.btn-gold svg { transition: transform 0.25s; }
+.btn-outline { display: inline-flex; align-items: center; gap: 10px; padding: 15px 36px; background: transparent; color: var(--surface); font-size: 12.5px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; border: 1px solid rgba(245,242,238,0.22); border-radius: 2px; transition: all 0.25s; }
+.btn-outline:hover { border-color: var(--surface); background: rgba(245,242,238,0.06); transform: translateY(-2px); }
+.hero-scroll { position: absolute; bottom: 36px; left: 80px; display: flex; align-items: center; gap: 12px; opacity: 0; animation: fadeIn 1s ease 1.4s forwards; }
+.scroll-line { width: 40px; height: 1px; background: var(--gold); opacity: 0.4; }
+.hero-scroll span { font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,242,238,0.35); }
+.hero-right { position: relative; overflow: hidden; }
+.hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px); background-size: 48px 48px; }
+.hero-slash { position: absolute; top: 0; left: -12%; width: 58%; height: 100%; background: linear-gradient(145deg, var(--crimson) 0%, #7a1515 100%); clip-path: polygon(28% 0%, 100% 0%, 72% 100%, 0% 100%); }
+.hero-slash-2 { position: absolute; top: 0; left: 8%; width: 52%; height: 100%; background: rgba(201,168,76,0.07); clip-path: polygon(28% 0%, 100% 0%, 72% 100%, 0% 100%); }
+.hero-floats { position: absolute; bottom: 52px; right: 44px; display: flex; flex-direction: column; gap: 12px; z-index: 3; opacity: 0; animation: fadeUp 1s var(--ease-out) 1s forwards; }
+.float-pill { background: rgba(14,15,17,0.8); backdrop-filter: blur(12px); border: 1px solid var(--border); padding: 14px 22px; border-radius: 3px; display: flex; align-items: center; gap: 16px; }
+.float-num { font-family: var(--f-display); font-size: 30px; font-weight: 600; color: var(--gold); line-height: 1; }
+.float-label { font-size: 11.5px; color: rgba(245,242,238,0.55); line-height: 1.4; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+/* SHARED SECTION */
+.section-tag-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.s-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+.s-tag-line { height: 1px; background: var(--border); max-width: 56px; }
+.s-h { font-family: var(--f-display); font-size: clamp(34px,3.5vw,54px); font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; }
+.s-h.light { color: var(--white); }
+.s-h.dark  { color: var(--ink); }
+
+/* SERVICES */
+.services-sec { padding: 120px 0; background: var(--ink-light); position: relative; }
+.services-sec::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.25; }
+.svc-header { display: grid; grid-template-columns: 1fr auto; align-items: end; margin-bottom: 60px; gap: 24px; }
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.svc-card { background: var(--ink-light); padding: 48px 42px; position: relative; overflow: hidden; transition: background 0.35s; }
+.svc-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease-out); }
+.svc-card:hover { background: var(--ink-mid); }
+.svc-card:hover::after { transform: scaleX(1); }
+.svc-num { font-family: var(--f-display); font-size: 60px; font-weight: 400; color: rgba(201,168,76,0.09); line-height: 1; margin-bottom: 18px; transition: color 0.3s; }
+.svc-card:hover .svc-num { color: rgba(201,168,76,0.18); }
+.svc-ico { width: 42px; height: 42px; margin-bottom: 20px; stroke: var(--gold); fill: none; stroke-width: 1.25; }
+.svc-title { font-family: var(--f-display); font-size: 24px; font-weight: 600; color: var(--white); margin-bottom: 14px; letter-spacing: -0.01em; }
+.svc-desc { font-size: 14px; color: rgba(245,242,238,0.48); line-height: 1.78; margin-bottom: 28px; }
+.svc-link { display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--gold); transition: gap 0.2s; }
+.svc-card:hover .svc-link { gap: 14px; }
+.svc-cta { text-align: center; margin-top: 52px; }
+
+/* ABOUT */
+.about-sec { padding: 120px 0; background: var(--surface); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-vis { position: relative; }
+.about-img { width: 100%; aspect-ratio: 4/3; background: var(--ink-mid); border-radius: 4px; overflow: hidden; }
+.about-img-inner { width: 100%; height: 100%; background: linear-gradient(135deg,#1a2035 0%,#0e0f11 60%,#2a1010 100%); display: flex; align-items: center; justify-content: center; }
+.about-img-inner svg { width: 70px; height: 70px; stroke: rgba(201,168,76,0.25); fill: none; stroke-width: 1; }
+.about-badge { position: absolute; bottom: -22px; right: -22px; width: 116px; height: 116px; background: var(--gold); border-radius: 2px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+.badge-num { font-family: var(--f-display); font-size: 42px; font-weight: 700; color: var(--ink); line-height: 1; }
+.badge-txt { font-size: 10.5px; font-weight: 600; color: rgba(14,15,17,0.65); text-align: center; line-height: 1.3; }
+.about-content .s-h { color: var(--ink); margin-bottom: 28px; }
+.about-content p { font-size: 15px; color: var(--muted); line-height: 1.82; margin-bottom: 18px; }
+.btn-dark { display: inline-flex; align-items: center; gap: 10px; padding: 14px 34px; background: var(--ink); color: var(--surface); font-size: 12.5px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 2px; margin-top: 14px; transition: all 0.25s; }
+.btn-dark:hover { background: var(--ink-mid); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(14,15,17,0.18); }
+.btn-dark svg { transition: transform 0.25s; }
+.btn-dark:hover svg { transform: translateX(5px); }
+
+/* STATS BAND */
+.stats-band { padding: 70px 0; background: var(--gold); }
+.stats-row { display: grid; grid-template-columns: repeat(4,1fr); }
+.stat-blk { text-align: center; padding: 0 28px; border-right: 1px solid rgba(14,15,17,0.14); }
+.stat-blk:last-child { border-right: none; }
+.stat-n { font-family: var(--f-display); font-size: 56px; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 10px; }
+.stat-l { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(14,15,17,0.58); }
+
+/* FOUNDERS */
+.founders-sec { padding: 120px 0; background: var(--ink); position: relative; }
+.founders-sec::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg,transparent,var(--gold),transparent); opacity: 0.2; }
+.founders-hd { text-align: center; margin-bottom: 70px; }
+.founders-hd .section-tag-row { justify-content: center; }
+.founders-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 22px; }
+.founder-card { background: var(--ink-light); border: 1px solid var(--border-sub); border-radius: 4px; overflow: hidden; transition: all 0.35s var(--ease-out); position: relative; }
+.founder-card::after { content: ''; position: absolute; inset: 0; border: 1px solid var(--gold); border-radius: 4px; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+.founder-card:hover { transform: translateY(-8px); box-shadow: 0 24px 64px rgba(0,0,0,0.55); }
+.founder-card:hover::after { opacity: 0.38; }
+.founder-photo { width: 100%; aspect-ratio: 3/4; background: linear-gradient(180deg,var(--ink-mid) 0%,#1a1215 100%); display: flex; align-items: flex-end; justify-content: center; position: relative; overflow: hidden; }
+.founder-photo::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top,rgba(14,15,17,0.75) 0%,transparent 50%); z-index: 1; }
+.sil { width: 72%; fill: rgba(201,168,76,0.1); }
+.founder-info { padding: 18px 20px 22px; border-top: 1px solid var(--border-sub); }
+.founder-name { font-family: var(--f-display); font-size: 18px; font-weight: 600; color: var(--white); letter-spacing: -0.01em; margin-bottom: 4px; }
+.founder-role { font-size: 10.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+
+/* CALENDAR */
+.cal-sec { padding: 120px 0; background: var(--ink-light); }
+.cal-hd { text-align: center; margin-bottom: 64px; }
+.cal-hd .section-tag-row { justify-content: center; }
+.cal-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: start; }
+.cal-widget { background: var(--ink); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.cal-top { padding: 20px 26px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+.cal-month-lbl { font-family: var(--f-display); font-size: 21px; font-weight: 600; color: var(--white); letter-spacing: -0.01em; }
+.cal-nav-btns { display: flex; gap: 8px; }
+.cal-btn { width: 30px; height: 30px; background: none; border: 1px solid var(--border); border-radius: 2px; color: rgba(245,242,238,0.45); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: all 0.2s; line-height: 1; }
+.cal-btn:hover:not(:disabled) { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.cal-btn:disabled { opacity: 0.2; cursor: not-allowed; }
+.cal-body { padding: 22px 26px 26px; }
+.cal-wdays { display: grid; grid-template-columns: repeat(7,1fr); margin-bottom: 8px; }
+.cal-wd { text-align: center; font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,242,238,0.27); padding: 5px 0; }
+.cal-days { display: grid; grid-template-columns: repeat(7,1fr); gap: 3px; }
+.cal-d { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: rgba(245,242,238,0.5); border-radius: 2px; cursor: pointer; transition: all 0.15s; position: relative; }
+.cal-d:hover:not(.empty) { background: rgba(201,168,76,0.1); color: var(--surface); }
+.cal-d.empty { cursor: default; }
+.cal-d.has-event { color: var(--surface); }
+.cal-d.has-event::after { content: ''; position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; background: var(--gold); border-radius: 50%; }
+.cal-d.today { background: var(--crimson); color: #fff; font-weight: 600; }
+.cal-d.today::after { background: rgba(255,255,255,0.5); }
+.cal-d.selected { background: rgba(201,168,76,0.14); color: var(--gold); border: 1px solid rgba(201,168,76,0.28); }
+.ev-panel { background: var(--ink); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
+.ev-header { padding: 17px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.ev-title-lbl { font-family: var(--f-display); font-size: 16px; font-weight: 600; color: var(--white); }
+.ev-cnt { font-size: 10.5px; padding: 3px 10px; background: rgba(201,168,76,0.13); color: var(--gold); border-radius: 20px; font-weight: 500; }
+.ev-list { overflow-y: auto; max-height: 420px; }
+.ev-list::-webkit-scrollbar { width: 3px; }
+.ev-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.ev-item { padding: 16px 22px; border-bottom: 1px solid rgba(201,168,76,0.05); transition: background 0.2s; }
+.ev-item:last-child { border-bottom: none; }
+.ev-item:hover { background: rgba(201,168,76,0.03); }
+.ev-item-title { font-size: 13.5px; font-weight: 500; color: var(--surface); margin-bottom: 5px; }
+.ev-item-desc { font-size: 11.5px; color: rgba(245,242,238,0.38); line-height: 1.6; margin-bottom: 9px; }
+.ev-item-meta { display: flex; gap: 14px; font-size: 10.5px; color: rgba(201,168,76,0.75); }
+.ev-item-meta span { display: flex; align-items: center; gap: 4px; }
+.ev-empty { padding: 44px 22px; text-align: center; color: rgba(245,242,238,0.22); font-size: 12.5px; }
+
+/* CAREERS */
+.careers-sec { padding: 120px 0; background: var(--surface); }
+.careers-hd { display: grid; grid-template-columns: 1fr auto; align-items: end; margin-bottom: 60px; gap: 24px; }
+.careers-hd .s-h { color: var(--ink); }
+.careers-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; background: rgba(14,15,17,0.1); border: 1px solid rgba(14,15,17,0.1); margin-bottom: 52px; }
+.career-card { background: var(--white); padding: 42px 44px; position: relative; overflow: hidden; transition: background 0.3s; }
+.career-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); transform: scaleY(0); transform-origin: bottom; transition: transform 0.35s var(--ease-out); }
+.career-card:hover { background: #f8f4ef; }
+.career-card:hover::before { transform: scaleY(1); }
+.career-dept { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--crimson); margin-bottom: 10px; }
+.career-title { font-family: var(--f-display); font-size: 26px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 16px; line-height: 1.2; }
+.career-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+.cbadge { padding: 4px 12px; font-size: 11px; font-weight: 500; border-radius: 2px; }
+.cbadge-type { background: rgba(14,15,17,0.07); color: var(--ink-mid); }
+.cbadge-loc { background: rgba(201,168,76,0.1); color: var(--gold-dim); }
+.career-link { display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); transition: gap 0.2s, color 0.2s; }
+.career-card:hover .career-link { gap: 14px; color: var(--gold-dim); }
+.careers-cta { text-align: center; }
+.btn-outline-ink { display: inline-flex; align-items: center; gap: 10px; padding: 14px 36px; border: 1px solid var(--ink); color: var(--ink); font-size: 12.5px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 2px; transition: all 0.25s; }
+.btn-outline-ink:hover { background: var(--ink); color: var(--surface); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(14,15,17,0.12); }
+
+/* FOOTER */
+.footer { background: #070809; padding: 80px 0 36px; border-top: 1px solid var(--border); }
+.footer-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: 80px; padding-bottom: 60px; border-bottom: 1px solid rgba(201,168,76,0.1); margin-bottom: 36px; }
+.footer-logo { height: 30px; width: auto; filter: brightness(0) invert(1); opacity: 0.75; display: block; margin-bottom: 18px; }
+.footer-tag { font-size: 13px; color: rgba(245,242,238,0.32); line-height: 1.65; margin-bottom: 28px; max-width: 240px; }
+.footer-socials { display: flex; gap: 10px; }
+.social-lnk { width: 34px; height: 34px; border: 1px solid rgba(201,168,76,0.18); border-radius: 2px; display: flex; align-items: center; justify-content: center; color: rgba(245,242,238,0.35); transition: all 0.2s; }
+.social-lnk svg { width: 15px; height: 15px; fill: currentColor; }
+.social-lnk:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.07); }
+.footer-cols { display: grid; grid-template-columns: repeat(3,1fr); gap: 48px; }
+.footer-col h5 { font-size: 10.5px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-col li, .footer-col li a { font-size: 13px; color: rgba(245,242,238,0.36); margin-bottom: 13px; display: block; transition: color 0.2s; }
+.footer-col li a:hover { color: var(--surface); }
+.footer-btm { display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 12px; color: rgba(245,242,238,0.22); }
+.footer-legal { display: flex; gap: 22px; }
+.footer-legal a { font-size: 12px; color: rgba(245,242,238,0.22); transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(245,242,238,0.55); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+.reveal.visible { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { height: 260px; }
+  .hero-left { padding: 140px 40px 80px; }
+  .hero-scroll { left: 40px; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 56px; }
+  .founders-grid { grid-template-columns: repeat(2,1fr); }
+  .cal-layout { grid-template-columns: 1fr; }
+  .careers-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(2,1fr); }
+  .stat-blk:nth-child(2) { border-right: none; }
+  .stat-blk { padding: 32px 28px; }
+  .stat-blk:nth-child(3), .stat-blk:nth-child(4) { border-top: 1px solid rgba(14,15,17,0.14); }
+  .footer-top { grid-template-columns: 1fr; gap: 44px; }
+  .footer-cols { grid-template-columns: repeat(2,1fr); }
+  .svc-header, .careers-hd { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 22px; }
+  .navbar { padding: 0 22px; }
+  .nav-links, #navCta { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 76px; left: 0; right: 0; background: rgba(14,15,17,0.97); backdrop-filter: blur(20px); padding: 30px 22px; gap: 24px; border-bottom: 1px solid var(--border); z-index: 999; }
+  .hero-left { padding: 120px 22px 60px; }
+  .hero-scroll { left: 22px; }
+  .founders-grid { grid-template-columns: repeat(2,1fr); gap: 14px; }
+  .footer-cols { grid-template-columns: 1fr; gap: 28px; }
+  .footer-btm { flex-direction: column; gap: 14px; text-align: center; }
+  .footer-legal { flex-wrap: wrap; justify-content: center; }
+  .about-badge { bottom: -18px; right: -18px; width: 100px; height: 100px; }
+  .badge-num { font-size: 34px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="nxsys.png" alt="NX►SYS"></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+    <div id="navCta"><a href="contact.html" class="btn-nav">Get Started</a></div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span class="eyebrow-dot"></span><span>Business Process Outsourcing · Cebu, Philippines</span></div>
+    <h1 class="hero-title">Smart<br>Outsourcing<br>For a <em>Smarter</em><br>Future</h1>
+    <p class="hero-sub">At NX-SYS Corp., we deliver world-class BPO solutions built on trust, expertise, and an unwavering commitment to your operational excellence.</p>
+    <div class="hero-btns">
+      <a href="about.html" class="btn-gold"><span>Learn More</span><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="contact.html" class="btn-outline">Get In Touch</a>
+    </div>
+    <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll to explore</span></div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-slash"></div>
+    <div class="hero-slash-2"></div>
+    <div class="hero-floats">
+      <div class="float-pill"><div class="float-num">10+</div><div class="float-label">Years of<br>Excellence</div></div>
+      <div class="float-pill"><div class="float-num">99%</div><div class="float-label">Client<br>Retention</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-sec">
+  <div class="container">
+    <div class="svc-header">
+      <div>
+        <div class="section-tag-row reveal"><span class="s-tag">Our Services</span><div class="s-tag-line"></div></div>
+        <h2 class="s-h light reveal d1">Comprehensive <em style="font-style:italic;color:var(--gold)">BPO Solutions</em></h2>
+      </div>
+      <a href="services.html" class="btn-outline reveal d2" style="align-self:center">View All</a>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-num">01</div>
+        <svg class="svc-ico" viewBox="0 0 48 48"><path d="M24 44c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0-28c-6.6 0-12 5.4-12 12h4c0-4.4 3.6-8 8-8s8 3.6 8 8h4c0-6.6-5.4-12-12-12zm0-8C12.95 8 4 16.95 4 28h4c0-8.84 7.16-16 16-16s16 7.16 16 16h4c0-11.05-8.95-20-20-20z" fill="currentColor" stroke="none"/></svg>
+        <div class="svc-title">Customer Support</div>
+        <p class="svc-desc">Exceptional 24/7 multichannel customer experiences that drive satisfaction, loyalty, and brand advocacy for your business.</p>
+        <a href="services.html" class="svc-link">Explore <svg width="13" height="13" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      </div>
+      <div class="svc-card reveal d1">
+        <div class="svc-num">02</div>
+        <svg class="svc-ico" viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="2"/><path d="M6 18H42M14 26H20M26 26H34M14 32H24" stroke-linecap="round"/></svg>
+        <div class="svc-title">Technical Operations</div>
+        <p class="svc-desc">Expert IT infrastructure management ensuring peak performance, security, and reliability for your mission-critical systems.</p>
+        <a href="services.html" class="svc-link">Explore <svg width="13" height="13" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      </div>
+      <div class="svc-card reveal d2">
+        <div class="svc-num">03</div>
+        <svg class="svc-ico" viewBox="0 0 48 48"><path d="M8 8H40V40H8V8Z"/><path d="M8 16H40M16 8V40M8 32H40M32 8V40"/></svg>
+        <div class="svc-title">Data Management</div>
+        <p class="svc-desc">Transform raw data into actionable insights through precision processing, analytics, and business intelligence services.</p>
+        <a href="services.html" class="svc-link">Explore <svg width="13" height="13" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      </div>
+    </div>
+    <div class="svc-cta reveal"><a href="services.html" class="btn-outline">See All Services &nbsp;→</a></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-sec">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-vis reveal">
+        <div class="about-img"><div class="about-img-inner"><svg viewBox="0 0 80 60" fill="none"><rect x="10" y="10" width="60" height="40" rx="3" stroke-width="1"/><circle cx="32" cy="28" r="10" stroke-width="1"/><path d="M20 48c0-6.63 5.37-12 12-12s12 5.37 12 12" stroke-width="1"/><path d="M48 30h14M48 36h10M48 24h12" stroke-linecap="round" stroke-width="1"/></svg></div></div>
+        <div class="about-badge"><div class="badge-num">10+</div><div class="badge-txt">Years of<br>Excellence</div></div>
+      </div>
+      <div class="about-content">
+        <div class="section-tag-row reveal"><span class="s-tag">About NX►SYS</span><div class="s-tag-line"></div></div>
+        <h2 class="s-h dark reveal d1">Our Story</h2>
+        <p class="reveal d2">Founded with a vision to revolutionize business process outsourcing, NX►SYS has grown from a dedicated team of professionals into a leading provider of comprehensive BPO solutions serving clients worldwide.</p>
+        <p class="reveal d3">We believe exceptional outsourcing is built on trust, transparency, and a deep understanding of our clients' unique challenges. Every day our team works to exceed expectations and deliver measurable, sustainable results.</p>
+        <a href="about.html" class="btn-dark reveal d4">Discover Our Story <svg width="15" height="15" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-blk reveal"><div class="stat-n">500+</div><div class="stat-l">Global Clients</div></div>
+      <div class="stat-blk reveal d1"><div class="stat-n">50+</div><div class="stat-l">Countries Served</div></div>
+      <div class="stat-blk reveal d2"><div class="stat-n">99%</div><div class="stat-l">Client Retention</div></div>
+      <div class="stat-blk reveal d3"><div class="stat-n">24/7</div><div class="stat-l">Global Coverage</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOUNDERS -->
+<section class="founders-sec">
+  <div class="container">
+    <div class="founders-hd">
+      <div class="section-tag-row reveal" style="justify-content:center"><span class="s-tag">Leadership</span><div class="s-tag-line" style="max-width:40px"></div></div>
+      <h2 class="s-h light reveal d1" style="text-align:center">Meet the TEAM</h2>
+    </div>
+    <div class="founders-grid">
+      <div class="founder-card reveal">
+        <div class="founder-photo"><img src="/image/President.png" alt="Jonalyn Kumamoto" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="founder-info"><div class="founder-name">Jonalyn Kumamoto</div><div class="founder-role">President</div></div>
+      </div>
+      <div class="founder-card reveal">
+        <div class="founder-photo"><img src="/image/DataCollector.png" alt="Deborah May Faa" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="founder-info"><div class="founder-name">Deborah May Faa</div><div class="founder-role">Data Collector</div></div>
+      </div>
+      <div class="founder-card reveal d1">
+        <div class="founder-photo"><img src="/image/ITdirector.png" alt="Mark Joel Galela" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="founder-info"><div class="founder-name">Mark Joel Galela</div><div class="founder-role">IT Director</div></div>
+      </div>
+      <div class="founder-card reveal d2">
+        <div class="founder-photo"><img src="/image/HRmanager.png" alt="Elishia Micah Galela" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="founder-info"><div class="founder-name">Elishia Micah Galela</div><div class="founder-role">HR Manager</div></div>
+      </div>
+      <div class="founder-card reveal d3">
+        <div class="founder-photo"><img src="/image/DQmanager.png" alt="Cheyene Naig" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="founder-info"><div class="founder-name">Cheyene Naig</div><div class="founder-role">QA Manager</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section class="cal-sec">
+  <div class="container">
+    <div class="cal-hd">
+      <div class="section-tag-row reveal" style="justify-content:center"><span class="s-tag">Schedule</span><div class="s-tag-line" style="max-width:40px"></div></div>
+      <h2 class="s-h light reveal d1" style="text-align:center">Calendar Events</h2>
+    </div>
+    <div class="cal-layout">
+      <div class="cal-widget reveal">
+        <div class="cal-top">
+          <div class="cal-month-lbl" id="calLbl">February 2026</div>
+          <div class="cal-nav-btns"><button class="cal-btn" id="calP">&#8249;</button><button class="cal-btn" id="calN">&#8250;</button></div>
+        </div>
+        <div class="cal-body">
+          <div class="cal-wdays"><div class="cal-wd">Su</div><div class="cal-wd">Mo</div><div class="cal-wd">Tu</div><div class="cal-wd">We</div><div class="cal-wd">Th</div><div class="cal-wd">Fr</div><div class="cal-wd">Sa</div></div>
+          <div class="cal-days" id="calGrid"></div>
+        </div>
+      </div>
+      <div class="ev-panel reveal d1">
+        <div class="ev-header"><div class="ev-title-lbl" id="evLbl">Events</div><div class="ev-cnt" id="evCnt">0 events</div></div>
+        <div class="ev-list" id="evList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<section class="careers-sec">
+  <div class="container">
+    <div class="careers-hd">
+      <div>
+        <div class="section-tag-row reveal"><span class="s-tag">Join Our Team</span><div class="s-tag-line"></div></div>
+        <h2 class="s-h dark reveal d1">Open <em style="font-style:italic;color:var(--crimson)">Positions</em></h2>
+      </div>
+    </div>
+    <div class="careers-grid">
+      <div class="career-card reveal">
+        <div class="career-dept">Customer Support</div>
+        <div class="career-title">Customer Service Representative</div>
+        <div class="career-badges"><span class="cbadge cbadge-type">Full-time</span><span class="cbadge cbadge-loc">Cebu City</span></div>
+        <a href="careers.html" class="career-link">Apply Now <svg width="13" height="13" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      </div>
+      <div class="career-card reveal d1">
+        <div class="career-dept">Technical Operations</div>
+        <div class="career-title">IT Systems Administrator</div>
+        <div class="career-badges"><span class="cbadge cbadge-type">Full-time</span><span class="cbadge cbadge-loc">Cebu City</span></div>
+        <a href="careers.html" class="career-link">Apply Now <svg width="13" height="13" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      </div>
+      <div class="career-card reveal d2">
+        <div class="career-dept">Data Management</div>
+        <div class="career-title">Data Analyst</div>
+        <div class="career-badges"><span class="cbadge cbadge-type">Full-time</span><span class="cbadge cbadge-loc">Cebu City</span></div>
+        <a href="careers.html" class="career-link">Apply Now <svg width="13" height="13" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      </div>
+      <div class="career-card reveal d3">
+        <div class="career-dept">Back Office</div>
+        <div class="career-title">Administrative Specialist</div>
+        <div class="career-badges"><span class="cbadge cbadge-type">Full-time</span><span class="cbadge cbadge-loc">Cebu City</span></div>
+        <a href="careers.html" class="career-link">Apply Now <svg width="13" height="13" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      </div>
+    </div>
+    <div class="careers-cta reveal"><a href="careers.html" class="btn-outline-ink">Explore All Openings</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <img src="nxsys.png" alt="NX►SYS" class="footer-logo">
+        <p class="footer-tag">Smart Outsourcing, For Smarter Future. Serving the world from Cebu, Philippines.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-lnk"><svg viewBox="0 0 24 24"><path d="M18 2h-3c-1.6 0-3.1.6-4.2 1.8C9.6 5 9 6.5 9 8.1V11H6v4h3v9h4v-9h3l1-4h-4V8.1c0-.3.1-.5.3-.7.2-.2.4-.3.7-.3h3V2z"/></svg></a>
+          <a href="#" class="social-lnk"><svg viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+          <a href="#" class="social-lnk"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">Customer Support</a></li><li><a href="services.html">Technical Operations</a></li><li><a href="services.html">Data Management</a></li><li><a href="services.html">Back Office Support</a></li></ul></div>
+        <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h5>Contact</h5><ul><li>Cebu Business Park</li><li>Cebu City, Philippines</li><li><a href="mailto:info@nxsys.com">info@nxsys.com</a></li><li>+63 xxx xxxx xxx</li></ul></div>
+      </div>
+    </div>
+    <div class="footer-btm">
+      <p class="footer-copy">&copy; 2024 NX►SYS Corporation. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="index.js" defer></script>
+</body>
+</html>
